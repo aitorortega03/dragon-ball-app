@@ -27,13 +27,13 @@ const CharacterList: React.FC = () => {
 
 
   return (
-    <div className="grid grid-cols-3 gap-4 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
     {characters.map((char) => (
       <div key={char.id} className="bg-white rounded shadow p-4">
         <img
           src={char.image}
           alt={char.name}
-          className="h-40 w-40 mx-auto object-contain"
+          className="h-60 w-60 mx-auto object-contain"
         />
         <h2 className="text-center mt-2">{char.name}</h2>
       </div>
