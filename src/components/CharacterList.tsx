@@ -5,12 +5,15 @@ import { fetchCharacters } from "../api/dragonBall";
 const CharacterList: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getCharacters = async () => {
       const data = await fetchCharacters();
       if (data) {
-        setCharacters(data.items);
+        setCharacters(data);
+      } else {
+        setError("Failed to load the characters. Please try again.")
       }
       setLoading(false);
     };
@@ -19,6 +22,9 @@ const CharacterList: React.FC = () => {
   }, []);
 
   if (loading) return <div>Loading...</div>;
+  if (error) return <div className="text-red-500 text-center">{error}</div>;
+  if (characters.length === 0) return <div className="text-center">No characters available.</div>;
+
 
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
