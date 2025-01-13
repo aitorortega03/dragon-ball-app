@@ -35,7 +35,7 @@ const CharacterList: React.FC = () => {
           alt={char.name}
           className="h-60 w-60 mx-auto object-contain"
         />
-        <h2 className="text-center mt-2 text-primary font-name text-3xl">{char.name}</h2>
+        <h2 className="text-center mt-2 text-primary font-name text-3xl font-bold">{char.name}</h2>
       </div>
     ))}
   </div>
