@@ -28,13 +28,16 @@ const PlanetList: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {planets.map((planet) => (
-        <div key={planet.id} className="bg-light text-dark rounded shadow p-4">
+        <div key={planet.id} className={`text-dark rounded shadow p-4 ${
+          planet.isDestroyed ? "bg-red-200" : "bg-light"
+        }`}>
           <img
           src={planet.image}
           alt={planet.name}
           className="h-60 w-60 mx-auto object-contain"
         />
           <h2 className="text-center mt-2 text-primary font-name text-3xl font-bold">{planet.name}</h2>
+          <p className="text-center text-sm font-name">{planet.description}</p>
         </div>
       ))}
     </div>
